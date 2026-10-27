@@ -13,7 +13,7 @@ def createcol(db):
     return list_heros, list_monstres
 # vider les deux colonne pour cas ou donner deja presente
 def clearcol(list_heros, list_monstres):
-    list_heros.drop()
+    list_heros.del()
     list_monstres.drop()
 # remplir la table
 def insertdata() :
