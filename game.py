@@ -1,28 +1,38 @@
 #     JEU option (1)
-
+from db_init import initialisation_de_la_db, list_heros
 from main import mistake
 
-
-def startgame():
-    while True:
-        pseudo = input("Veuillez entrer votre pseudo : ")
-        if is_valid(pseudo):
-            break
-        else:
-            mistake()
+db = initialisation_de_la_db
 #       Pseudo du joueur
 #           boucle infini
 #               demander un pseudo
 #               si pseudo valide 
 #                   return pseudo
+def enterpseudo():
+    while True:
+        pseudo = input("Veuillez entrer votre pseudo : ")
+        if (pseudo):
+            is_valide(pseudo)
+            return pseudo
 #
 #       creer une equipe
 #       recuperer les heros et leur caracteristique 
 #           ouvrir la bdd
+
+    print(list_heros)
 #           acceder a la collection heros
 #           recuperer les lignes des heros
 #       ouvrir la table equipe 
 #       on la clear
+list_equipe.drop()
+def create_team(list_heros, list_equipe):
+    while len(list_equipe) < 3:
+        print("veillez selectionner un heros parmis ceux disponibles : ")
+        choiceheros = input("entrez le nom du heros : ")
+        if choiceheros in list_heros:
+            list_equipe.append(choiceheros)
+        else:
+            mistake()
 #        une boucle tant que l'equipe < 3   
 #           afficher le resultat
 #           demander de selectionner un heros dans la table
@@ -32,7 +42,10 @@ def startgame():
 #                           le retirer des choix possible
 #                           ajouter a equipe
 #                       sinon
-#                           lancer la fonction erreur
+#                         lancer la fonction erreur
+def showteam(list_equipe):
+    print("Votre equipe est : ")
+
 #       afficher l'equipe
 #           ouvrir la db equipe
 #           recuperer
@@ -66,15 +79,18 @@ def startgame():
 #
 #
 #fonction is_valid
-def is_valid(pseudo):
-    if len(pseudo) < 3 or len(pseudo) > 25:
-
 #   si
 #       nom > 3 caractere  
 #       nom < 25 caractere
 #       nom != de ceux dans la db
 #   sinon
-#       lancer la fonction erreur 
+#       lancer la fonction erreur
+def is_valide(pseudo):
+    if 3 < len(pseudo) < 25 and pseudo != db.score.find({"name": pseudo}):
+        return True
+    else:   
+        mistake()
+
 #
 #fonction monstersrandom
 #   ouvrir table monstre

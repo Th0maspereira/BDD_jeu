@@ -9,6 +9,8 @@ def initialisation_de_la_db():
     #pour reset les col
     db.heros.drop()
     db.monstres.drop()
+    db.equipe.drop()
+    db.score.drop()
 
     list_heros = [
         {"id" : "1", "nom": "Darius", "ATK": "30", "DEF": "15", "PV": "200"},
@@ -33,8 +35,11 @@ def initialisation_de_la_db():
         {"id" : "7", "nom": "Red buff", "ATK": "10", "DEF": "25", "PV": "100"},
         {"id" : "8", "nom": "carap", "ATK": "25", "DEF": "18", "PV": "250"},
         {"id" : "9", "nom": "raptors", "ATK": "20", "DEF": "12", "PV": "200"},
-        {"id" : "10", "nom": "gromp", "ATK": "30", "DEF": "5", "PV": "150"}
+        {"id" : "10", "nom": "gromp", "ATK": "30", "DEF": "5", "PV": "150"}    
     ]
+    list_equipe = []
+    list_score = []
+
 
     # pour inserer les list
     db.heros.insert_many(list_heros)

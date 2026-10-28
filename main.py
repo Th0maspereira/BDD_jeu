@@ -1,5 +1,6 @@
 #importer de game.py le score
-from game import startgame
+from random import choice
+#from game import startgame
 
 
 # MENU = [
@@ -8,28 +9,15 @@ from game import startgame
 #   "Quitter",
 #    ]
 # Menu
+#   Boucle sur tout element de MENU
+#       afficher numero element et texte element
 def showmenu():
     print("Voici le menu principale "
           "\n   vous avez le choix entre")
     print("1. Lancer le jeu")
     print("2. Afficher les scores")
     print("3. Quitter")
-def choix_menu(startgame, showleaderboard, quitgame, mistake):
-    while True:
-        choix = input("Veuillez entrer votre choix : ")
-        if choix == "1":
-            startgame()
-            break
-        elif choix == "2":
-            showleaderboard()
-            break
-        elif choix == "3":
-            quitgame()
-            break
-        else:
-            mistake()
-#   Boucle sur tout element de MENU
-#       afficher numero element et texte element
+
 # Choix (options, mistake)
 #    while True:
 #        Recuperer choix utilisateur
@@ -38,6 +26,32 @@ def choix_menu(startgame, showleaderboard, quitgame, mistake):
 #             return choix
 #        Sinon
 #             Lancer fonction mistake
+def isvalide(choice):
+    if choice in ["1", "2", "3"]:
+        return True
+    else:
+        mistake()
+
+
+def getchoice():
+    while True :
+        choiceuser = input("Veuillez entrer votre choix : ")
+        if isvalide(choiceuser):
+            return int(choiceuser)
+
+def choice_menu():
+    choice = getchoice()
+    if choice == 1:
+        print("le jeu va commencer")
+        startgame()
+    elif choice == 2:
+        print("Voici le leaderboard")
+        showleaderboard()
+    elif choice == 3:
+        print("fermeture du jeu")
+        quitgame()
+
+
 #
 #    Afficher les scores option (2)
 def showleaderboard():
@@ -62,6 +76,9 @@ def quitgame ():
 
 def mistake():
     print("Votre choix n'est pas valide veuillez en entrer un qui le soit")
-    pass
+    showmenu()
+
 
 showmenu()
+choice_menu()
+
