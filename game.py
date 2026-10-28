@@ -1,4 +1,15 @@
-#    JEU
+#     JEU option (1)
+
+from main import mistake
+
+
+def startgame():
+    while True:
+        pseudo = input("Veuillez entrer votre pseudo : ")
+        if is_valid(pseudo):
+            break
+        else:
+            mistake()
 #       Pseudo du joueur
 #           boucle infini
 #               demander un pseudo
@@ -54,9 +65,20 @@
 #        
 #
 #
+#fonction is_valid
+def is_valid(pseudo):
+    if len(pseudo) < 3 or len(pseudo) > 25:
+
+#   si
+#       nom > 3 caractere  
+#       nom < 25 caractere
+#       nom != de ceux dans la db
+#   sinon
+#       lancer la fonction erreur 
+#
 #fonction monstersrandom
 #   ouvrir table monstre
 #   recuperer un monstre au hasard 
 #   print votre ennemie sera
 #   afficher monstres choisi et stats
-#
+#   return ennemie
