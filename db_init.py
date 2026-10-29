@@ -7,11 +7,13 @@ def initialisation_de_la_db():
     db = client["game_db"]
     
     #pour reset les col
+#def clearcol(db):
     db.heros.drop()
     db.monstres.drop()
     db.equipe.drop()
     db.score.drop()
 
+#def createcol():
     list_heros = [
         {"id" : "1", "nom": "Darius", "ATK": "30", "DEF": "15", "PV": "200"},
         {"id" : "2", "nom": "Sett", "ATK": "20", "DEF": "10", "PV": "200"},
@@ -39,9 +41,10 @@ def initialisation_de_la_db():
     ]
     list_equipe = []
     list_score = []
-
+    
 
     # pour inserer les list
+#def insertcol(db, list_heros, list_monstres):
     db.heros.insert_many(list_heros)
     db.monstres.insert_many(list_monstres)
 

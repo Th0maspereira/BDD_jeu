@@ -1,5 +1,6 @@
 #     JEU option (1)
-from db_init import initialisation_de_la_db, list_heros
+import random
+from db_init import initialisation_de_la_db
 from main import mistake
 
 db = initialisation_de_la_db
@@ -19,7 +20,7 @@ def enterpseudo():
 #       recuperer les heros et leur caracteristique 
 #           ouvrir la bdd
 
-    print(list_heros)
+print(list_heros)
 #           acceder a la collection heros
 #           recuperer les lignes des heros
 #       ouvrir la table equipe 
@@ -27,8 +28,7 @@ def enterpseudo():
 list_equipe.drop()
 def create_team(list_heros, list_equipe):
     while len(list_equipe) < 3:
-        print("veillez selectionner un heros parmis ceux disponibles : ")
-        choiceheros = input("entrez le nom du heros : ")
+        choiceheros = input("veillez selectionner un heros parmis ceux disponibles : ")
         if choiceheros in list_heros:
             list_equipe.append(choiceheros)
         else:
@@ -44,7 +44,7 @@ def create_team(list_heros, list_equipe):
 #                       sinon
 #                         lancer la fonction erreur
 def showteam(list_equipe):
-    print("Votre equipe est : ")
+    print(f"Votre equipe est : {list_equipe}")
 
 #       afficher l'equipe
 #           ouvrir la db equipe
@@ -52,6 +52,10 @@ def showteam(list_equipe):
 #
 #
 #       boucle infini pour les vagues/combats
+def vague():
+    while True :
+        while monsteralive :
+
 #              lancer la function monstersrandom
 #           while hp monstres > 0
 #               les heros attaque
@@ -98,3 +102,18 @@ def is_valide(pseudo):
 #   print votre ennemie sera
 #   afficher monstres choisi et stats
 #   return ennemie
+def monstersrandom(list_monstres):
+    ennemie  = random.choice(list_monstres)
+    print(f"Votre ennemie sera : {ennemie['nom']}, ATK: {ennemie['ATK']}, DEF: {ennemie['DEF']}, PV: {ennemie['PV']}")
+    return ennemie
+
+def monsteralive(ennemie):
+    ennemie
+    pass
+
+def herosatk():
+    pass
+
+def monstersatk():
+    pass
+

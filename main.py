@@ -1,6 +1,6 @@
 #importer de game.py le score
 from random import choice
-#from game import startgame
+from game import enterpseudo
 
 
 # MENU = [
@@ -43,7 +43,7 @@ def choice_menu():
     choice = getchoice()
     if choice == 1:
         print("le jeu va commencer")
-        startgame()
+        enterpseudo()
     elif choice == 2:
         print("Voici le leaderboard")
         showleaderboard()
@@ -76,7 +76,7 @@ def quitgame ():
 
 def mistake():
     print("Votre choix n'est pas valide veuillez en entrer un qui le soit")
-    showmenu()
+
 
 
 showmenu()
